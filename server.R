@@ -1,16 +1,16 @@
-library(shiny)
-library(leaflet)
-# Adding labels to points requires what is currently the development version of leaflet. To install:
-# library(devtools)
-# install_github("rstudio/leaflet")
-# but today this corrupts the help pages, so return to: install.packages("leaflet")
-library(ggmap)
-library(sp) # need for over()
-library(maptools)
-
-house <- readShapePoly("HOUSE15.shp")
-
 server <- function(input, output, session) {
+  library(shiny)
+  library(leaflet)
+  # Adding labels to points requires what is currently the development version of leaflet. To install:
+  # library(devtools)
+  # install_github("rstudio/leaflet")
+  # but today this corrupts the help pages, so return to: install.packages("leaflet")
+  library(ggmap)
+  library(sp) # need for over()
+  library(maptools)
+  
+  house <- readShapePoly("HOUSE15.shp")
+  
   
   points <- eventReactive(input$button, {
     geocode(input$address)
