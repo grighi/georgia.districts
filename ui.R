@@ -1,5 +1,5 @@
 ui <- fluidPage(
-  library(leaflet)
+  library(leaflet),
   
   leafletOutput("mymap"),
   p(),
